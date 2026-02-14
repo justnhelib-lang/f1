@@ -1,0 +1,30 @@
+// ئەڤە دێ دەمێ لاپەر بار دبیت دەست ب کار بیت
+document.addEventListener('DOMContentLoaded', function() {
+    
+    console.log("Welcome to Baxtiyar Cars!"); // بۆ پشتراستبوون د کنسولێ دا
+
+    // دەمێ کلیک ل سەر هەر کارتەکا سەیارێ دهێتە کرن
+    const carCards = document.querySelectorAll('.car-card');
+
+    carCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // دەمێ کلیک لێ دهێتە کرن، رەنگێ دەورۆبەری دێ بیتە زێرین
+            this.style.border = "2px solid #d4af37";
+            
+            // وەک نموونە: نیشاندانا ناڤێ سەیارێ
+            let carName = this.querySelector('h3').innerText;
+            alert("تە سەیارا " + carName + " هەلبژارد");
+        });
+    });
+
+    // گوهۆرینا رەنگێ دل (Heart Icon)
+    const hearts = document.querySelectorAll('.heart-icon');
+    hearts.forEach(heart => {
+        heart.addEventListener('click', function(e) {
+            e.stopPropagation(); // دا کو کلیکا ل سەر کارتی ب خوە کار نەکەت
+            this.style.color = "red";
+            this.innerHTML = "❤"; // گوهۆرینا دلێ سپی بۆ یێ سۆر
+        });
+    });
+
+});
